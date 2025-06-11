@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div th:replace="fragments/gohome :: goToHome"></div>
+    <fieldset>
+        <legend>Pathvariable 사용</legend>
+        <form action="https://google.com" id="myForm">
+            <input type="text" id="input-name" name="inName" placeholder="이름 입력" />
+            <input type="text" id="input-age" name="inAge" placeholder="나이 입력" />
+            <button type="submit">전송</button>
+        </form>
+    </fieldset>
+    <h2 th:text="${name} != null ? ${name}+'님이'+${age}: '이름을 입력하세요'"></h2>
+    <div th:replace="~{fragments/footer :: myFooter }"></div>
+    <script>
+        const myform = document.getElementById("myForm");
+        myform.addEventListener("submit", (event) => {
+            /* 사용자가 전송 버튼 클릭시
+            기본적으로 폼은 action ="https://google.com 에 데이터 제출 
+            event.preventDefault();를 호출하면 기본 제출 동작 취소 
+            대신,JavaScript 코드에서 입력된 name과 age 값을 가져와 직접 URL을 변경(window.location.href)하는 방식으로 페이지 이동을 처리
+            " */
+            event.preventDefault();
+            const name = document.querySelector("#input-name").value;
+            const age = document.querySelector("#input-age").value;
+            window.location.href = `/ex08/${name}/${age}`;
+        });
+    </script>
+</body>
+
+</html>

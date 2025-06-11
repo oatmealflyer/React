@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr,
+        td {
+            background-color: aquamarine;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>타임리프 each 기능</h1>
+    <table>
+        <!-- list형식에서 forEach로 뽑아낼 때
+          index는 0부터 시작 
+          count는 1부터 시작 
+          value는 값 -->
+        <tr th:each="num, stat :${numbers}">
+            <td>list데이터(stat.index)<div th:text="${stat.index}"></div>
+            </td>
+            <td>
+                list데이터(stat.count)<div th:text="${stat.count}"></div>
+            </td>
+            <td>
+                list데이터의 값<div th:text="${num}"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>데이터2</td>
+            <td>33</td>
+        </tr>
+    </table>
+</body>
+
+</html>

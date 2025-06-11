@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr,
+        td {
+            width: 120px;
+            height: 70px;
+            border: 1px solid #ccc;
+            background-color: rgb(96, 96, 209);
+            color: rgb(145, 150, 182);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>스프링부트 실습</h1>
+    <h2><a href="model">ex01예제</a></h2>
+    <h3><a href="ex01a">ex01a예제</a></h3>
+    <h3><a href="increase">ex02예제</a></h3>
+    <h3><a href="fragments">ex03예제</a></h3>
+    <h3><a href="ifunless">ex04예제</a></h3>
+    <h3><a href="DTO1">ex05예제</a></h3>
+    <h3><a href="DTO2">ex06예제</a></h3>
+
+
+    <table>
+        <tr>
+            <th>넘버</th>
+            <th>링크</th>
+        </tr>
+        <tr th:each="page, index :${pages}">
+            <td th:text="${index.count}"></td>
+            <!-- <td><a th:href="@{/__${page}__}" th:text="${page}"></a></td> -->
+            <td><a th:href="@{/{vv}( vv= ${page})}" th:text="${page}"></a></td>
+        </tr>
+    </table>
+</body>
+
+</html>
