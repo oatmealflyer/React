@@ -31,11 +31,6 @@ body {
   min-height: 100vh;
 }
 
-.dark-mode {
-  background-color: rgb(54, 73, 73);
-  color: white;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
